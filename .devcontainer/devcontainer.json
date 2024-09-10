@@ -1,12 +1,23 @@
 {
-    "name": "Data Science Environment",
-    "image": "mcr.microsoft.com/vscode/devcontainers/python:3.8",
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "terminal.integrated.shell.linux": "/bin/bash"
-            }
-        }
+    "name": "Python Data Science",
+    "dockerFile": "Dockerfile",
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {},
+        "ghcr.io/devcontainers-contrib/features/jupyter:1": {},
+        "ghcr.io/devcontainers-contrib/features/pandas:1": {}
     },
+  "customizations": {
+    "vscode": {
+        "settings": {
+            "python.defaultInterpreterPath": "/usr/local/bin/python",
+            "python.linting.enabled": true,
+            "python.formatting.provider": "black"
+        },
+        "extensions": [
+            "ms-python.python",
+            "ms-toolsai.jupyter"
+        ]
+    }
+  },
     "postCreateCommand": "pip install -r requirements.txt"
 }
