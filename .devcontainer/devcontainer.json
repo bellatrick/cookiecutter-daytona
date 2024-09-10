@@ -1,23 +1,23 @@
 {
     "name": "Python Data Science",
-    "dockerFile": "Dockerfile",
+    "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
     "features": {
-        "ghcr.io/devcontainers/features/python:1": {},
-        "ghcr.io/devcontainers-contrib/features/jupyter:1": {},
-        "ghcr.io/devcontainers-contrib/features/pandas:1": {}
+        "ghcr.io/devcontainers/features/python:1":  {},
+        "ghcr.io/bellatrick/feature-starter/cookiecutter:latest": {}
     },
   "customizations": {
     "vscode": {
         "settings": {
             "python.defaultInterpreterPath": "/usr/local/bin/python",
             "python.linting.enabled": true,
-            "python.formatting.provider": "black"
+            "python.linting.pylintEnabled": true
         },
         "extensions": [
             "ms-python.python",
-            "ms-toolsai.jupyter"
+             "ms-python.vscode-pylance"
         ]
     }
-  }
+  },
 
+    "postCreateCommand": "pip install -r requirements.txt"
 }
